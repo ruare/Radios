@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radios Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir hls.js para la compatibilidad con m3u8 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="image-container">
+            <img src="Radioll.jpg" alt="Radio" class="radios-images">
+        </div>
+    </header>
+    <!-- Campo de búsqueda -->
+<input type="search" id="input-search" placeholder="Buscar emisora..." oninput="filtrarEmisoras()" />
+<!-- Botón de búsqueda -->
+<button id="btn-buscar" onclick="filtrarEmisoras()">Buscar</button>
+
+
+    
+    
+    <!-- Carrusel de emisoras -->
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-group">
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/RIVADAVIAAAC.aac', 'https://rivadavia.com.ar/images/logo_header.png', 'Radio Rivadavia')">
+                        <img src="https://rivadavia.com.ar/images/logo_header.png" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item" data-name="Radio la Red AM910"> 
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/LA_RED_AM910AAC.aac', 'https://www.lared.am/css-custom/316/favicons/apple-touch-icon.png', 'Radio la Red')">
+                        <img src="https://www.lared.am/css-custom/316/favicons/apple-touch-icon.png" class="logo">
+                    </a>
+                    <p>Radio la Red AM910</p>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('http://playerservices.streamtheworld.com/api/livestream-redirect/AM790_56AAC_SC', 'https://myradioenvivo.ar/public/uploads/radio_img/radio-mitre/fb_cover.jpg', 'Radio Mitre')">
+                        <img src="imagen/mitre.jpg" class="logo">
+                    </a>
+                <p>AM790</p>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://27403.live.streamtheworld.com/ASPEN.mp3', 'https://fmaspen.com/wp-content/uploads/2021/10/cropped-Aspen102-192x192.jpg', 'Aspen')">
+                        <img src="https://fmaspen.com/wp-content/uploads/2021/10/cropped-Aspen102-192x192.jpg" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://frontend.radiohdvivo.com/los40/live?dist=los40-web-live_streaming_play', 'https://player.los40.com.ar/build/assets/los40argentina/img/300x300.png', 'Los40 Argentina')">
+                        <img src="https://player.los40.com.ar/build/assets/los40argentina/img/300x300.png" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/FM999_56.mp3', 'http://cdn-profiles.tunein.com/s6984/images/logod.jpg', 'La 100')">
+                        <img src="http://cdn-profiles.tunein.com/s6984/images/logod.jpg" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/DISNEY_ARG_BA_ADP.aac', 'https://cdn-profiles.tunein.com/s13659/images/logog.png', 'Radio Disney')">
+                        <img src="https://cdn-profiles.tunein.com/s13659/images/logog.png" class="logo">
+                    </a>
+                </div>
+            <div class="carousel-item">
+                <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/ROCKANDPOPAAC.aac','https://fmrockandpop.com/pwa/ios_192x192.png','fmrockandPop')">
+                <img src="https://fmrockandpop.com/pwa/ios_192x192.png" class="logo" >
+                </a>
+            </div>
+        <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://server.laradio.online/proxy/laradio1047?mp=/stream', 'https://laradio1047.com.ar/images/logo_top.png', 'LaRadio 104.7')">
+        <img src="imagen/laradio104.7.jpg" class="logo" >
+        </a>
+        </div>
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://ipanel.instream.audio:7000/stream','https://static.wixstatic.com/media/bec174_ab44bc8dffdb479b8386959c7966916f~mv2.jpg','AM530 Somos Radio')">
+    <img src="https://static.wixstatic.com/media/bec174_ab44bc8dffdb479b8386959c7966916f~mv2.jpg" class="logo">
+</a>
+</div>
+
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://ipanel.instream.audio/8004/stream','	https://www.eldestapeweb.com/img/favicons/apple-icon-120x120.png', 'AM 1.070 Eldestape')">
+<img src="https://www.eldestapeweb.com/img/favicons/apple-icon-120x120.png" class="logo">
+</a> <br>
+<h3>El Destape</h3>
+</div>
+<div class="carousel-item">
+<a href="javascript:void(0);" onclick="cambiarRadio('http://unlimited2-ar.dps.live/cnn-ar/aac/icecast.audio', 'cnn.arg.jpg','CNN Español')">
+<img src="imagen/cnn.arg.jpg" class="logo" >
+</a>
+<h3> AM 950 Arg</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://streaming01.shockmedia.com.ar:10217/stream','https://amdelplata.com/wp-content/uploads/2023/08/cropped-favicon-180x180.png','Radio Del Plata AM 1030')">
+<img src="imagen/delplata.jpg" class="logo">
+</a>
+</div>
+
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://streaming450tb.locucionar.com/proxy/fmvida979?mp=/stream','https://www.fmvida.com.ar/img/fmvida_200x200.png','FM 97.9 Vida')">
+    <img src="https://www.fmvida.com.ar/img/fmvida_200x200.png" class="logo">
+    </a>
+    </div>
+
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/BLUE_FM_100_7AAC.aac','blue.100.7.jpg','Blue FM 100.7')">
+    <img src="imagen/blue.100.7.jpg" class="logo">
+    </a>
+    </div>
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/DSPORTSRADIOAAC.aac','sports.fm103.1.jpg','FM 103.1 DirecTV Sports Radio')">
+    <img src="imagen/sports.fm103.1.jpg" class="logo">
+    </a>
+    </div>
+    
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://27433.live.streamtheworld.com/AM750AAC.aac?dist=triton-widget&amp;tdsdk=js-2.9&amp;swm=false&amp;pname=tdwidgets&amp;pversion=2.9&amp;banners=none&amp;burst-time=15&amp;sbmid=00ed0060-c497-4bc2-c0b8-3c8bf91188ab','https://www.pagina12.com.ar/assets/media/favicon/57x57.png?v=2.0.274','AM750 Pagina 12')">
+    <img src="https://www.pagina12.com.ar/assets/media/favicon/57x57.png?v=2.0.274" class="logo">
+    </a>
+<h5> AM 750</h5>
+    </div>
+
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('http://streaming.latina101.com.ar:9000/Repetidoras',' https://www.latina101.com.ar/images/logo.png','Radio Latina FM 101.1')">
+    <img src="https://www.latina101.com.ar/images/logo.png" class="logo">
+    </a>
+    </div>
+
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('https://stream-160.zeno.fm/60pqgs97f2zuv?zs=BCmVbzf4RheaQLwJZpq_Og','https://cdn-profiles.tunein.com/s16486/images/logog.jpg','Cadena Cumbia Latina89.3 FM')">
+    <img src="https://cdn-profiles.tunein.com/s16486/images/logog.jpg" class="logo">
+    </a>
+    </div>
+    <div class="carousel-item">
+        <a href="javascript:void(0);" onclick="cambiarRadio('http://unlimited2-ar.dps.live/cnn-ar/aac/icecast.audio','https://www.cadena3.com/img/logo.png','cadena3 Cordoba Argentina')">
+        <img src="https://www.cadena3.com/img/logo.png" class="logo" >
+        </a>
+        <h4>AM700</h4>
+        </div>
+        <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://26673.live.streamtheworld.com/LAPOPU.mp3','https://www.lapopu.com.ar/img/favicon.png','La popu')">
+        <img src="https://www.lapopu.com.ar/img/la-popu-placa-generica.jpg" class="logo">
+        </a>
+        </div>
+        <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://alpha.radioplayer.com.ar/stream/continental','continental.png','Continental AM590')">
+        <img src="imagen/continental.png" class="logo">
+        </a>
+    <h3> AM 590</h3>
+        </div>
+        <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://streaming.radiosenlinea.com.ar:10763/live','planeta.cuarteto.jpg','Planeta cuarteto FM100.3')">
+        <img src="imagen/planeta.cuarteto.jpg" class="logo">
+        </a>
+        </div>
+        <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://26343.live.streamtheworld.com/SAM06AAC243_SC','https://horizonte.perfil.com/images/favicon/apple-touch-icon.png','Horizonte.Perfil FM 101.9')">
+        <img src="https://horizonte.perfil.com/images/favicon/apple-touch-icon.png" class="logo">
+        </a>
+        </div>
+
+   <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://sa.mp3.icecast.magma.edge-access.net/sc_rad35','https://www.radionacional.com.ar/apple-icon-120x120.png','RAE Radio Nacional en vivo')">
+        <img src="https://www.radionacional.com.ar/apple-icon-120x120.png" class="logo">
+        </a>
+    <h3>Radio Nacional</h3>
+   </div>
+   <div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://fair.entic.net:8010/tango','https://radiodetango.com.ar/imgs/iconos/ico-2x.png','	Radio de tango')">
+<img src="https://radiodetango.com.ar/imgs/iconos/ico-2x.png" class="logo">
+</a>
+<h3>Radio de Tango</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('http://sonic.host-live.com:8258/stream','https://fmsur889.com.ar/static/custom/logo.png?t=2024-10-25+03%3A00%3A25.061633','FM Sur 88.9 Quilmes')">
+<img src="https://fmsur889.com.ar/static/custom/logo.png?t=2024-10-25+03%3A00%3A25.061633" class="logo">
+</a>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://server.laradio.online:15223/live.mp3','https://am570radioargentina.com.ar/wp-content/themes/radio/images/logo_570.png','Radio Belgrano AM 650 khz Buenos Aires')">
+<img src="https://am570radioargentina.com.ar/wp-content/themes/radio/images/logo_570.png" class="logo">
+</a>
+<h4>Belgrano AM650</h4>
+</div>
+
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('http://sa.mp3.icecast.magma.edge-access.net:7200/sc_rad38','folclorica.98.7.png','Radio Nacional Folklorica 98.7')">
+<img src="imagen/folclorica.98.7.png" class="logo">
+</a>
+</div>
+
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('http://servidor.ilive.com.ar:9678/;','https://toay.gob.ar/images/logo.png','FM 94.3 Radio Municipal de Toay')">
+<img src="https://toay.gob.ar/images/logo.png" class="logo">
+</a>
+<h3> FM 94.3</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://streaming01.radiosenlinea.com.ar/8490/stream','https://www.am1420.com.ar/p_am1420/gclogo.jpg','Radio General Conesa AM 1420')">
+<img src="https://www.am1420.com.ar/p_am1420/gclogo.jpg" class="logo">
+</a><h3> Provincia de Buenos Aires</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('	https://streaming.redboing.com/radio/8000/radio.aac','boing.png','Radio Boing 97.3 Rosario')">
+<img src="imagen/boing.png" class="logo">
+</a> 
+<h3> Radio Boing 97.3 Rosario</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://01.solumedia.com.ar:7678/stream','fm89.5.jpg','FM BAND NEWS 89.5')">
+<img src="imagen/fm89.5.jpg" class="logo">
+</a><h6> Misiones</h6>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('http://server.laradio.online:8797/;','https://maximaonline.com.ar/archivos/images/iconos/apple-icon-120x120.png','94.5 Máxima FM')">
+<img src="https://maximaonline.com.ar/archivos/images/iconos/apple-icon-120x120.png" class="logo">
+</a>
+<h1> 94.5 Máxima FM</h1>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://streamserver-2.xyz/listen/del_sol_play/radio.aac','https://estaciondelsol.elsol.com.ar/wp-content/uploads/2021/08/logo-estaciondelsol.png','Estación del Sol 100.9')">
+<img src="https://estaciondelsol.elsol.com.ar/wp-content/uploads/2021/08/logo-estaciondelsol.png" class="logo">
+</a>
+<h2> Estación del Sol</h2>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://playerservices.streamtheworld.com/api/livestream-redirect/METRO.mp3','https://cdn-profiles.tunein.com/s25987/images/logog.jpg','Metro FM 95.1')">
+<img src="https://cdn-profiles.tunein.com/s25987/images/logog.jpg" class="logo">
+</a>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://genexservicios.com:8098/;?1731987222109','https://www.radiocristiana957.com.ar/img/logo-web-xs.png','Radio Cristiana 95.7')">
+<img src="https://www.radiocristiana957.com.ar/img/logo-web-xs.png" class="logo">
+</a>
+<h3> FM 95.7</h3>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('http://radios.solumedia.com:6002/stream','https://www.conceptofm.com.ar/nuevaweb/wp-content/uploads/2022/06/logo.png','Concepto FM 95.5')">
+<img src="https://www.conceptofm.com.ar/nuevaweb/wp-content/uploads/2022/06/logo.png" class="logo">
+</a>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://cloudstream2030.conectarhosting.com/8182/stream','https://elcafedelmundo.com/wp-content/uploads/2023/11/Nuestra-Salsa-2023-980x980.jpg','Nuestra Salsa Radio')">
+<img src="https://elcafedelmundo.com/wp-content/uploads/2023/11/Nuestra-Salsa-2023-980x980.jpg" class="logo">
+</a>
+</div>
+
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://dj91.hostingnuclear.com/9952/stream','gaucho.reproductor.jpg','Rincón Gaucho')">
+<img src="imagen/gaucho.1.png" class="logo">
+</a>
+</div>
+<div class="carousel-item">
+    <a href="javascript:void(0);" onclick="cambiarRadio('https://streaming01.shockmedia.com.ar:10554/stream?icy=http','https://libertadfm995.com.ar/imagenes/logo.jpg','radio libertad')">
+<img src="https://libertadfm995.com.ar/imagenes/logo.jpg" class="logo">
+</a>
+</div>
+                <!-- Radio con HLS -->
+                <div class="carousel-item">
+                <a href="javascript:void(0)" onclick="cambiarRadio('http://vale.stweb.tv:1935/vale/live/playlist.m3u8','https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Vale975.png/225px-Vale975.png','Vale 97.1')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Vale975.png/225px-Vale975.png" class="logo">
+                </a>
+                </div>
+                <div class="carousel-item">
+                <a href="javascript:void(0)" onclick="cambiarRadio('http://s8.stweb.tv:1935/observador/live/playlist.m3u8','https://elobservador1079.com.ar/wp-content/uploads/2023/07/cropped-favicom-web-el-ob-180x180.png','107.9 El Observador')">
+                <img src="https://elobservador1079.com.ar/wp-content/uploads/2023/07/cropped-favicom-web-el-ob-180x180.png" class="logo" >
+                </a>
+                 <h4>El Observador</h4>
+                </div>
+            <div class="carousel-item">
+            <a href="javascript:void(0);" onclick="cambiarRadio('https://popradio.stweb.tv/popradio/live/chunks.m3u8','https://www.radiopop.fm/icons/Icon-192.png','Pop Radio 101.5')">
+            <img src="https://www.radiopop.fm/icons/Icon-192.png" class="logo" >
+            </a>
+            </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://mdstrm.com/audio/5d9d019112cbbb45d6a50960/live.m3u8', 'https://platform-static.cdn.mdstrm.com/player/thumbnail/5dc3199fa7078529e9eef67a.png','FutuRÖck.fm')">
+                        <img src="http://platform-static.cdn.mdstrm.com/player/thumbnail/5dc3199fa7078529e9eef67a.png" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://vmf.edge-apps.net/playlist/urbana.m3u8/play.m3u8', 'https://urbanaplayfm.com/file/2023/09/cropped-favicon-urb-play-180x180.png','Urbana Play 104.3')">
+                    <img src="https://urbanaplayfm.com/file/2023/09/cropped-favicon-urb-play-180x180.png" class="logo" >
+                    </a>
+                <p> Urbana Play FM 104.3</p>
+                    </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://server1.stweb.tv/rcvos/live/playlist.m3u8', 'https://radioconvos.com.ar/wp-content/themes/radioconvos-child/images/brand.jpg', 'Radioconvos 89.9')">
+                        <img src="https://radioconvos.com.ar/wp-content/themes/radioconvos-child/images/brand.jpg" class="logo">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://radio10.stweb.tv/radio10/live/playlist.m3u8', 'https://www.radio10.com.ar/css-custom/220/favicons/apple-touch-icon-120x120.png', 'Radio10')">
+                        <img src="https://www.radio10.com.ar/css-custom/220/favicons/apple-touch-icon-114x114.png" class="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Reproductor de radio -->
+    <div class="player-comment-container">
+        <div class="radio-player">
+            <h3> Reproductor de Radio</h3>
+            <div id="radio-logo-container">
+                <img id="radio-logo" src="http://cdn-profiles.tunein.com/s6984/images/logod.jpg" alt="Logo de la emisora" class="radio-image">
+            </div>
+            <!-- Reproductor actualizado para MP3 y M3U8 -->
+            <audio id="reproductor" controls>
+                <source id="radio-source" src="" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <video id="video-player" controls style="display: none;">
+                <source id="video-source" src="" type="application/x-mpegURL">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+            <div id="informacion-radio">
+                <p><strong>Título:</strong> <span id="titulo-cancion">Seleccione una emisora</span></p>
+                <p><strong>Artista:</strong> <span id="artista-cancion">No disponible</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- No olvides este script -->
+    <footer>
+        <div class="footer-content">
+            <!-- Sección de "Quiénes somos" -->
+            <section class="about-us">
+                <h2>Quiénes somos</h2>
+                <p>
+                    ¡Bienvenidos a <strong>TuRadioEnLinea</strong>! Somos un espacio dedicado a ofrecerte las mejores emisoras de radio en línea. Nuestro objetivo es brindarte una experiencia única de entretenimiento, permitiéndote escuchar tu música, noticias y programas favoritos, sin importar dónde te encuentres.
+                </p>
+                <p>
+                    Contamos con una amplia selección de emisoras que cubren una variedad de géneros, desde música hasta programas de interés general, para que siempre tengas algo para disfrutar. Ya sea que busques relajarte con música, mantenerte informado o descubrir nuevos sonidos, en nuestra página encontrarás todo lo que necesitas.
+                </p>
+                <p>
+                    Nos apasiona conectar personas a través de la música y la información. Gracias por visitarnos, ¡esperamos que disfrutes de tu experiencia en <strong>TuRadioEnLinea</strong>!
+                </p>
+            </section>
+    
+            <!-- Sección de derechos de autor -->
+            <section class="footer-rights">
+                <p>&copy; 2024 <strong>TuRadioEnLinea</strong>. Todos los derechos reservados.</p>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
