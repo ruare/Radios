@@ -87,9 +87,14 @@ body {
 }
 
 .radio-player {
+    width: 100%;
+    max-width: 600px;
     display: auto;
     height: 100%; /* Asegúrate de que el contenedor tenga una altura definida si es necesario */
+margin: 0 auto;
+display: block;
 }
+
 h3 {
     text-align: center;  /* Centra solo el texto dentro del <h3> */
     margin: 1;           /* Elimina los márgenes por defecto */
