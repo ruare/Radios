@@ -70,3 +70,30 @@ function filtrarEmisoras() {
         }
     });
 }
+
+
+const carousel = document.querySelector('.carousel');
+let isDragging = false;
+let startX, scrollLeft;
+
+// Inicia el evento táctil
+carousel.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+});
+
+// Maneja el movimiento táctil
+carousel.addEventListener('touchmove', (e) => {
+    if (!isDragging) return; // Solo se ejecuta si estás arrastrando
+    e.preventDefault(); // Evita el comportamiento predeterminado
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; // Ajusta la sensibilidad
+    carousel.scrollLeft = scrollLeft - walk;
+});
+
+// Finaliza el evento táctil
+carousel.addEventListener('touchend', () => {
+    isDragging = false;
+});
+
