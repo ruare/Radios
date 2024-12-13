@@ -280,12 +280,12 @@
             </a>
             </div>
                 <div class="carousel-item">
-                    <a href="javascript:void(0);" onclick="cambiarRadio('https://mdstrm.com/audio/5d9d019112cbbb45d6a50960/live.m3u8', 'https://platform-static.cdn.mdstrm.com/player/thumbnail/5dc3199fa7078529e9eef67a.png','FutuRÖck.fm')">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://us-b4-p-e-zs14-audio.cdn.mdstrm.com/live-audio/5942a3a05fa68cca2efb4264/5d9d019112cbbb45d6a50960/chunks.m3u8', 'https://platform-static.cdn.mdstrm.com/player/thumbnail/5dc3199fa7078529e9eef67a.png','FutuRÖck.fm')">
                         <img src="http://platform-static.cdn.mdstrm.com/player/thumbnail/5dc3199fa7078529e9eef67a.png" class="logo">
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="javascript:void(0);" onclick="cambiarRadio('https://vmf.edge-apps.net/playlist/urbana.m3u8/play.m3u8', 'https://urbanaplayfm.com/file/2023/09/cropped-favicon-urb-play-180x180.png','Urbana Play 104.3')">
+                    <a href="javascript:void(0);" onclick="cambiarRadio('https://ice1.edge-apps.net/urbana.audio', 'https://urbanaplayfm.com/file/2023/09/cropped-favicon-urb-play-180x180.png','Urbana Play 104.3')">
                     <img src="https://urbanaplayfm.com/file/2023/09/cropped-favicon-urb-play-180x180.png" class="logo" >
                     </a>
                 <p> Urbana Play FM 104.3</p>
@@ -306,6 +306,9 @@
         <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
     </div>
 
+   
+
+
     <!-- Reproductor de radio -->
     <div class="player-comment-container">
         <div class="radio-player">
@@ -313,6 +316,11 @@
             <div id="radio-logo-container">
                 <img id="radio-logo" src="http://cdn-profiles.tunein.com/s6984/images/logod.jpg" alt="Logo de la emisora" class="radio-image">
             </div>
+
+          <!--boton favoritos -->
+            <button id="btn_Favoritos" class="btn-favoritos" title="Haz clic para agregar o eliminar de favoritos">❤</button>
+
+
             <!-- Reproductor actualizado para MP3 y M3U8 -->
             <audio id="reproductor" controls>
                 <source id="radio-source" src="" type="audio/mpeg">

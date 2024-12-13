@@ -386,3 +386,24 @@ footer {
         padding: 8px;
     }
 }
+.btn-favoritos {
+    position: relative;
+    left: 50px; /* Mueve el botón a la derecha */
+    position: relative;
+    top: -30px; /* Sube el botón hacia arriba */
+}
+/* Botón por defecto (rojo) */
+.btn-favoritos {
+    background-color: white; /* Fondo blanco */
+    color: red; /* Corazón rojo */
+    border: 1px solid red; /* Borde rojo */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+/* Botón cuando la radio está en favoritos (verde) */
+.btn-favoritos.favorito {
+    background-color: green; /* Fondo verde */
+    color: white; /* Corazón blanco */
+    border: 1px solid green; /* Borde verde */
+}
